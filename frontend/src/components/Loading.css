@@ -1,0 +1,26 @@
+.loader-container {
+  position: fixed; /* Change to fixed to cover the whole viewport */
+  top: 0;          /* Start from the top of the viewport */
+  left: 0;         /* Start from the left of the viewport */
+  width: 100%;     /* Full width */
+  height: 100%;    /* Full height */
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  display: flex;   /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  z-index: 9999;   /* High z-index to ensure it appears above other content */
+}
+
+.loader {
+  border: 8px solid #f3f3f3;    /* Light grey border */
+  border-top: 8px solid #3498db; /* Blue border on top for the spinner effect */
+  border-radius: 50%;            /* Circular shape */
+  width: 100px;                   /* Width of the loader */
+  height: 100px;                  /* Height of the loader */
+  animation: spin 1s linear infinite; /* Spinning animation */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
