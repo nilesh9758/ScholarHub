@@ -30,7 +30,7 @@ const port = 5000;
 // Database connection
 mongoose
   //.connect(process.env.DATABASE_URL)
-  .connect("mongodb://localhost:27017/test")
+  .connect("mongodb+srv://nileshchaubey9702:nileshchaubey9702@cluster0.d7b2t.mongodb.net/universe?retryWrites=true&w=majority&appName=Cluster0")
   //.connect("mongodb+srv://iib2022038:acKZwVv2fnUYcNDT@cluster0.0ouumue.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log("Database connected"))
   .catch((err) => console.log(err.message));
