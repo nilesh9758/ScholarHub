@@ -18,6 +18,8 @@ const link_route = require('./routes/Links');
 const pyq_route = require('./routes/PyqRoute');
 const admin_route = require('./routes/MakeAdmin');
 const get_profile = require('./routes/EditProfile');
+const sendOtpRoute = require('./routes/send-otp');
+const verifyOtp = require('./routes/verify-otp'); 
 
 // Middleware importing
 const { check_login } = require('./middlewares/check_for_login');
@@ -54,6 +56,9 @@ app.use(cookieParser());
 
 // Routes
 app.use("/signup", userRoute);
+//to get and verify otp for signup
+app.use('/send-otp', sendOtpRoute);
+app.use('/verify-otp', verifyOtp);
 
 // Routes to make someone teacher/admin 
 app.use('/admin', check_login, check_admin, admin_route);
