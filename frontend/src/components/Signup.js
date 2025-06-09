@@ -48,7 +48,7 @@ export default function SignUp() {
     if (!validate()) return;
     setIsLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/send-otp', {
+      const res = await fetch('https://scholarhub-zj03.onrender.com/send-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: form.email }),
@@ -75,7 +75,7 @@ export default function SignUp() {
     }
     setOtpLoading(true);
     try {
-      const res1 = await fetch('http://localhost:5000/verify-otp', {
+      const res1 = await fetch('https://scholarhub-zj03.onrender.com/verify-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: form.email, otp }),
@@ -86,7 +86,7 @@ export default function SignUp() {
         throw new Error(data.error || 'OTP verification failed');
       }
 
-      const res2 = await fetch('http://localhost:5000/signup', {
+      const res2 = await fetch('https://scholarhub-zj03.onrender.com/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
@@ -108,7 +108,7 @@ export default function SignUp() {
   const resend = async () => {
     setOtpLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/send-otp', {
+      const res = await fetch('https://scholarhub-zj03.onrender.com/send-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: form.email }),
