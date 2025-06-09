@@ -23,7 +23,7 @@ const Results = () => {
 
   const fetchUserType = async () => {
     try {
-      const { data } = await axios.get('http://localhost:5000/get_info');
+      const { data } = await axios.get('https://scholarhub-zj03.onrender.com/get_info');
       setStudentRoll(data.rollNo);
       setUserType(data.type);
     } catch (error) {
@@ -33,7 +33,7 @@ const Results = () => {
 
   const fetchCourses = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:5000/semester?semester=${semester}`);
+      const { data } = await axios.get(`https://scholarhub-zj03.onrender.com/semester?semester=${semester}`);
       setCourses(data);
     } catch (error) {
       console.error('Error fetching courses:', error);
@@ -42,7 +42,7 @@ const Results = () => {
 
   const handleSemesterSubmit = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:5000/result?semester=${semester}`,userType);
+      const { data } = await axios.get(`https://scholarhub-zj03.onrender.com/result?semester=${semester}`,userType);
       setSemesterResult(`GPA For the Given Semester: ${data.sgpa}`);
       setShowUploadDialog(false);
     } catch (error) {
@@ -53,7 +53,7 @@ const Results = () => {
 
   const handleCourseResultSubmit = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/result/course`, {
+      const response = await axios.get(`https://scholarhub-zj03.onrender.com/result/course`, {
         params: {
           roll: studentRoll, // studentRoll as a query parameter
           course,            // course as a query parameter
@@ -84,7 +84,7 @@ const Results = () => {
     };
     
     // Determine the URL based on upload type
-    const url = `http://localhost:5000/result${uploadType === 'course' ? '/course' : ''}`;
+    const url = `https://scholarhub-zj03.onrender.com/result${uploadType === 'course' ? '/course' : ''}`;
     
     // Set the error message dynamically based on upload type
     const errorMessage = uploadType === 'semester' ? 'semester result' : 'course result';
