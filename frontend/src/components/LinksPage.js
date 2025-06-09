@@ -17,7 +17,7 @@ const LinksPage = () => {
 
   const fetchLinks = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/course/links?course=${course_name}`);
+      const response = await axios.get(`https://scholarhub-zj03.onrender.com/course/links?course=${course_name}`);
      // console.log(JSON.parse(response.data[1]).link);
       setLinks(response.data);
     } catch (error) {
@@ -27,7 +27,7 @@ const LinksPage = () => {
 
   const fetchUserType = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/get_info');
+      const response = await axios.get('https://scholarhub-zj03.onrender.com/get_info');
       setUserType(response.data.type);
     } catch (error) {
       console.error('Error fetching user type:', error);
@@ -36,7 +36,7 @@ const LinksPage = () => {
 
   const handleDelete = async (link) => {
     try {
-    await axios.delete(`http://localhost:5000/course/links?link_address=${link.link}&course=${course_name}&name_of_video=${link.name_of_video}`,{
+    await axios.delete(`https://scholarhub-zj03.onrender.com/course/links?link_address=${link.link}&course=${course_name}&name_of_video=${link.name_of_video}`,{
       data: {
         userType: userType 
       }
@@ -50,7 +50,7 @@ const LinksPage = () => {
   
   const handleUpload = async () => {
     try {
-      await axios.post('http://localhost:5000/course/links', {
+      await axios.post('https://scholarhub-zj03.onrender.com/course/links', {
         name_of_video: newLinkName,
         link_address: newLinkValue,
         course: course_name,
