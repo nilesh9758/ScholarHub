@@ -20,7 +20,7 @@ const StudyMaterials = () => {
 
   const fetchCourseDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/course/studyMaterial?course=${courseId}`);
+      const response = await axios.get(`https://scholarhub-zj03.onrender.com/course/studyMaterial?course=${courseId}`);
       setCourseName(`Course ${courseId}`);
       setStudyMaterials(response.data);
     } catch (error) {
@@ -30,7 +30,7 @@ const StudyMaterials = () => {
 
   const fetchUserType = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/get_info');
+      const response = await axios.get('https://scholarhub-zj03.onrender.com/get_info');
       setUserType(response.data.type);
     } catch (error) {
       console.error('Error fetching user type:', error);
@@ -58,7 +58,7 @@ const StudyMaterials = () => {
       formData.append('file_pdf', selectedFile);
       formData.append('userType', userType); // Include userType in formData if it’s required by the server
   
-      const response = await axios.post(`http://localhost:5000/course/studyMaterial/upload_pdf?course=${courseId}`, formData, {
+      const response = await axios.post(`https://scholarhub-zj03.onrender.com/course/studyMaterial/upload_pdf?course=${courseId}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -74,7 +74,7 @@ const StudyMaterials = () => {
   const handleDelete = async (fileName) => {
     if (window.confirm(`Are you sure you want to delete ${fileName}?`)) {
       try {
-        await axios.delete('http://localhost:5000/course/studyMaterial/delete', {
+        await axios.delete('https://scholarhub-zj03.onrender.com/course/studyMaterial/delete', {
           data: { fileName, course: courseId,userType},
         });
         fetchCourseDetails();
