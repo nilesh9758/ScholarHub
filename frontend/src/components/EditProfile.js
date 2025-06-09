@@ -23,7 +23,7 @@ const EditProfile = () => {
   // Fetch user info and check if admin
   const fetchUserInfo = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/get_info');
+      const response = await axios.get('https://scholarhub-zj03.onrender.com/get_info');
       const { _id, __v, ...userData } = response.data;
       setUserInfo(userData);
       setIsAdmin(userData.type === 'admin');
@@ -46,7 +46,7 @@ const EditProfile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put('http://localhost:5000/get_info', userInfo);
+      const response = await axios.put('https://scholarhub-zj03.onrender.com/get_info', userInfo);
       setSuccessMessage(response.data.message);
       setErrorMessage(''); // Clear error message
     } catch (error) {
@@ -59,7 +59,7 @@ const EditProfile = () => {
   // Handle making user a teacher
   const handleMakeTeacher = async () => {
     try {
-      const response = await axios.put('http://localhost:5000/admin/teacher', { rollNo: rollNoToChange });
+      const response = await axios.put('https://scholarhub-zj03.onrender.com/admin/teacher', { rollNo: rollNoToChange });
       setSuccessMessage(response.data.message);
       setErrorMessage('');
     } catch (error) {
@@ -72,7 +72,7 @@ const EditProfile = () => {
   // Handle making user a student
   const handleMakeStudent = async () => {
     try {
-      const response = await axios.put('http://localhost:5000/admin/student', {rollNo: rollNoToChange });
+      const response = await axios.put('https://scholarhub-zj03.onrender.com/admin/student', {rollNo: rollNoToChange });
       setSuccessMessage(response.data.message);
       setErrorMessage('');
     } catch (error) {
@@ -85,7 +85,7 @@ const EditProfile = () => {
   // Handle making user an admin
   const handleMakeAdmin = async () => {
     try {
-      const response = await axios.put('http://localhost:5000/admin/admin', { rollNo: rollNoToChange });
+      const response = await axios.put('https://scholarhub-zj03.onrender.com/admin/admin', { rollNo: rollNoToChange });
       console.log(response);
       if (response.data && response.data.message) {
         setSuccessMessage(response.data.message); // Use just the message string
