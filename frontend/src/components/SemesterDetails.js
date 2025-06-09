@@ -38,7 +38,7 @@ const SemesterDetails = () => {
 
   const fetchSemesterDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/semester?semester=${semesterId}`);
+      const response = await axios.get(`https://scholarhub-zj03.onrender.com/semester?semester=${semesterId}`);
   
       // Filter courses by department from the backend response
       const coursesIT = response.data.filter(course => course.department === 'IT');
@@ -60,7 +60,7 @@ const SemesterDetails = () => {
 
   const fetchUserType = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/get_info');
+      const response = await axios.get('https://scholarhub-zj03.onrender.com/get_info');
       setUserType(response.data.type);
       setRoll(response.data.rollNo);
     } catch (error) {
@@ -80,7 +80,7 @@ const SemesterDetails = () => {
     e.preventDefault();
     try {
       console.log('Submitting form data:', formData);
-      const response = await axios.post('http://localhost:5000/add_courses', {formData,userType});
+      const response = await axios.post('https://scholarhub-zj03.onrender.com/add_courses', {formData,userType});
       console.log('Add course response:', response);
       if (response.status === 200) {
         navigate('/');
