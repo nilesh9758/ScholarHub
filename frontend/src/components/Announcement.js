@@ -18,7 +18,7 @@ const Announcements = () => {
 
   const fetchAnnouncements = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/announcements');
+      const response = await axios.get('https://scholarhub-zj03.onrender.com/announcements');
       setAnnouncements(response.data);
     } catch (error) {
       console.error('Error fetching announcements:', error);
@@ -27,7 +27,7 @@ const Announcements = () => {
 
   const fetchUserInfo = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/get_info');
+      const response = await axios.get('https://scholarhub-zj03.onrender.com/get_info');
       setUserType(response.data.type);
     } catch (error) {
       console.error('Error fetching user info:', error);
@@ -42,7 +42,7 @@ const Announcements = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/announcements', {newAnnouncement,userType});
+      const response = await axios.post('https://scholarhub-zj03.onrender.com/announcements', {newAnnouncement,userType});
       setShowAddDialog(false);
       //reset
       setNewAnnouncement({
