@@ -58,9 +58,9 @@ async function UserLogin(req, res) {
 
         // Set JWT token in cookies (with options for security)
         res.cookie("token", token, {
-            httpOnly: false,  // Make the cookie inaccessible to JavaScript
+            httpOnly: true,  // Make the cookie inaccessible to JavaScript
             secure: process.env.NODE_ENV === 'production',  // Ensure cookies are sent over HTTPS in production
-            sameSite: 'strict',  // Prevent CSRF attacks
+            sameSite: 'lax',  // Prevent CSRF attacks
             maxAge: 3600 * 1000  // Cookie expiration time (1 hour)
         });
 
