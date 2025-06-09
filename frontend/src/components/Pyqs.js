@@ -143,7 +143,7 @@ const PYQS = () => {
 
   const fetchCourseDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/course/pyq?course=${courseId}`);
+      const response = await axios.get(`https://scholarhub-zj03.onrender.com/course/pyq?course=${courseId}`);
       setCourseName(`Course ${courseId}`);
       setPrqys(response.data);
     } catch (error) {
@@ -153,7 +153,7 @@ const PYQS = () => {
 
   const fetchUserType = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/get_info');
+      const response = await axios.get('https://scholarhub-zj03.onrender.com/get_info');
       setUserType(response.data.type);
     } catch (error) {
       console.error('Error fetching user type:', error);
@@ -181,7 +181,7 @@ const PYQS = () => {
       formData.append('file_pdf', selectedFile);
       formData.append('userType', userType); // Include userType in formData if it’s required by the server
   
-      const response = await axios.post(`http://localhost:5000/course/pyq/upload_pdf?course=${courseId}`, formData, {
+      const response = await axios.post(`https://scholarhub-zj03.onrender.com/course/pyq/upload_pdf?course=${courseId}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -197,7 +197,7 @@ const PYQS = () => {
   const handleDelete = async (fileName) => {
     if (window.confirm(`Are you sure you want to delete ${fileName}?`)) {
       try {
-        await axios.delete('http://localhost:5000/course/pyq/delete', {
+        await axios.delete('https://scholarhub-zj03.onrender.com/course/pyq/delete', {
           data: { fileName, course: courseId,userType},
         });
         fetchCourseDetails();
