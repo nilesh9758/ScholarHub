@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   const handleSignOut = async () => {
     try {
       // Perform sign-out logic here, such as sending a POST request to the sign-out endpoint
-      await fetch('http://localhost:5000/signout', {
+      await fetch('https://scholarhub-zj03.onrender.com/signout', {
         method: 'POST',
         credentials: 'include', // Include credentials for CORS
       });
