@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/get_info', {
+        const response = await axios.get('https://scholarhub-zj03.onrender.com/get_info', {
           withCredentials: true,
         });
         if (response.status === 200) {
@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
 
   const handleSignOut = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/signout', {}, {
+      const response = await axios.post('https://scholarhub-zj03.onrender.com/signout', {}, {
         withCredentials: true,
       });
 
