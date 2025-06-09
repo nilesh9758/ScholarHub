@@ -54,6 +54,7 @@ const corsOptions = {
   credentials: true,
 };
 
+app.use(express.json());
 
 // Apply CORS middleware globally
 app.use(cors(corsOptions)); 
