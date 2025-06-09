@@ -38,13 +38,22 @@ mongoose
   .catch((err) => console.log(err.message));
 
 // CORS Options for specific configurations
+const allowedOrigins = [
+  "http://localhost:3000", 
+  "https://scholarhub-tau.vercel.app" 
+];
+
 const corsOptions = {
-  origin: 'http://localhost:3000', // Replace with your frontend domain
-  //origin: true, // Allow requests from any origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true, // Allows cookies to be included
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
 };
+
 
 // Apply CORS middleware globally
 app.use(cors(corsOptions)); 
